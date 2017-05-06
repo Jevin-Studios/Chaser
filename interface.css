@@ -1,0 +1,26 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+canvas {
+	padding: 0;
+    margin: auto;
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+	background: #eee;
+	border: 5px solid black;
+	cursor: none;
+}
+
+h1.title {
+	text-align: center;
+}
+
+h3.seconds {
+	text-align: center;
+}
