@@ -19,8 +19,10 @@ canvas {
 
 h1.title {
 	text-align: center;
+	font-family: 'Baloo', sans-serif;
 }
 
 h3.seconds {
 	text-align: center;
+	font-family: 'Baloo', sans-serif;
 }

@@ -20,6 +20,15 @@ var ballRadius = 15;
 var chaserRadius = 15;
 var seconds = 0;
 var start = false;
+var highscore = 0;
+
+if(localStorage.getItem("highscore")) {
+	highscore = localStorage.getItem("highscore");
+	document.getElementById("seconds").innerHTML = "Seconds: "+seconds+" Highscore: "+highscore;
+} else {
+	highscore = 0;
+	document.getElementById("seconds").innerHTML = "Seconds: "+seconds+" Highscore: "+highscore;
+};
 
 
 
@@ -39,9 +48,10 @@ function drawChaser() {
 	ctx.closePath();
 }
 
+
 function drawSeconds() {
 	seconds += 1;
-	document.getElementById("seconds").innerHTML = "Seconds: "+seconds;
+	document.getElementById("seconds").innerHTML = "Seconds: "+seconds+" Highscore: "+highscore;
 }
 
 function draw() {
@@ -59,7 +69,14 @@ function draw() {
 	}
 	
 	if((Math.sqrt((Math.pow((chaserX-x), 2)) + (Math.pow((chaserY-y), 2)))) < 30) {
-		alert("YOU COLLIDED");
+		clearInterval(drawTimer);
+		if(seconds>highscore) {
+			highscore = seconds;
+			localStorage.setItem("highscore",highscore);
+			alert("YOU COLLIDED BUT YOU HAVE A NEW HIGHSCORE OF "+highscore)
+		} else {
+			alert("YOU COLLIDED");
+		}
 		document.location.reload();
 	}
 
@@ -166,4 +183,11 @@ function keyUpHandler(e) {
 	
 }
 
-setInterval(draw, 10);
+var link = document.createElement('link');
+link.type = 'image/x-icon';
+link.rel = 'shortcut icon';
+link.href = 'https://jevin-studios.github.io/Chaser/Favicon.ico';
+document.getElementsByTagName('head')[0].appendChild(link);
+
+
+var drawTimer = setInterval(draw, 10);
