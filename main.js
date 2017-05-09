@@ -186,7 +186,7 @@ function keyUpHandler(e) {
 var link = document.createElement('link');
 link.type = 'image/x-icon';
 link.rel = 'shortcut icon';
-link.href = 'https://jevin-studios.github.io/Chaser/Favicon.ico';
+link.href = 'https://jevin-studios.github.io/Chaser/logo.ico';
 document.getElementsByTagName('head')[0].appendChild(link);
 
 
