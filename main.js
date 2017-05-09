@@ -22,6 +22,12 @@ var seconds = 0;
 var start = false;
 var highscore = 0;
 
+var link = document.createElement('link');
+link.type = 'image/x-icon';
+link.rel = 'shortcut icon';
+link.href = 'https://jevin-studios.github.io/Chaser/logo.ico';
+document.getElementsByTagName('head')[0].appendChild(link);
+
 if(localStorage.getItem("highscore")) {
 	highscore = localStorage.getItem("highscore");
 	document.getElementById("seconds").innerHTML = "Seconds: "+seconds+" Highscore: "+highscore;
@@ -183,11 +189,6 @@ function keyUpHandler(e) {
 	
 }
 
-var link = document.createElement('link');
-link.type = 'image/x-icon';
-link.rel = 'shortcut icon';
-link.href = 'https://jevin-studios.github.io/Chaser/logo.ico';
-document.getElementsByTagName('head')[0].appendChild(link);
 
 
 var drawTimer = setInterval(draw, 10);
