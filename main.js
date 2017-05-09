@@ -28,6 +28,7 @@ link.rel = 'shortcut icon';
 link.href = 'https://jevin-studios.github.io/Chaser/logo.ico';
 document.getElementsByTagName('head')[0].appendChild(link);
 
+
 if(localStorage.getItem("highscore")) {
 	highscore = localStorage.getItem("highscore");
 	document.getElementById("seconds").innerHTML = "Seconds: "+seconds+" Highscore: "+highscore;
@@ -65,13 +66,31 @@ function draw() {
 	drawBall();
 	drawChaser();
 	if(y + dy > canvas.height-ballRadius || y + dy < ballRadius || x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
-		alert("GAME OVER");
-		document.location.reload();
+		clearInterval(drawTimer);
+		swal({
+			title: "Runner Dies",
+			text: "The runner hit the wall",
+			type: "info",
+			confirmButtonText: "Retry",
+			closeOnConfirm: false
+		},
+		function(){
+			document.location.reload();
+		});
 	}
 	
 	if(chaserY + chaserDY > canvas.height-chaserRadius || chaserY + chaserDY < chaserRadius || chaserX + chaserDX > canvas.width-chaserRadius || chaserX + chaserDX < chaserRadius) {
-		alert("YOU WIN");
-		document.location.reload();
+		clearInterval(drawTimer);
+		swal({
+			title: "Chaser Dies",
+			text: "The chaser hit the wall",
+			type: "info",
+			confirmButtonText: "Retry",
+			closeOnConfirm: false
+		},
+		function(){
+			document.location.reload();
+		});
 	}
 	
 	if((Math.sqrt((Math.pow((chaserX-x), 2)) + (Math.pow((chaserY-y), 2)))) < 30) {
@@ -79,11 +98,28 @@ function draw() {
 		if(seconds>highscore) {
 			highscore = seconds;
 			localStorage.setItem("highscore",highscore);
-			alert("YOU COLLIDED BUT YOU HAVE A NEW HIGHSCORE OF "+highscore)
+			swal({
+				title: "Chaser caught runner",
+				text: "The chaser caught the runner\n\nYou have set a new highscore of "+highscore+" seconds",
+				type: "info",
+				confirmButtonText: "Retry",
+				closeOnConfirm: false
+			},
+			function(){
+				document.location.reload();
+			});
 		} else {
-			alert("YOU COLLIDED");
+			swal({
+				title: "Chaser caught runner",
+				text: "The chaser caught the runner",
+				type: "info",
+				confirmButtonText: "Retry",
+				closeOnConfirm: false
+			},
+			function(){
+				document.location.reload();
+			});
 		}
-		document.location.reload();
 	}
 
 	if(rightPressed) {
