@@ -225,6 +225,32 @@ function keyUpHandler(e) {
 	
 }
 
+function resetHighscore() {
+	clearInterval(draw);
+	swal({
+		title: "Are You Sure?",
+		text: "Clicking OK will reset your highscore to 0",
+		type: "warning",
+		showCancelButton: true,
+		closeOnConfirm: false,
+		showLoaderOnConfirm: true,
+	},
+	function(){
+		localStorage.setItem("highscore", 0)
+		setTimeout(function(){
+			swal({
+				title: "Highscore Deleted",
+				type: "success",
+				closeOnConfirm: false,
+			},
+			function(){
+				document.location.reload();
+			
+			});
+		}, 2000);
+	});
+}
+
 
 
 var drawTimer = setInterval(draw, 10);
