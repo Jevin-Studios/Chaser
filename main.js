@@ -79,20 +79,7 @@ function draw() {
 		});
 	}
 	
-	if(chaserY + chaserDY > canvas.height-chaserRadius || chaserY + chaserDY < chaserRadius || chaserX + chaserDX > canvas.width-chaserRadius || chaserX + chaserDX < chaserRadius) {
-		clearInterval(drawTimer);
-		swal({
-			title: "Chaser Dies",
-			text: "The chaser hit the wall",
-			type: "info",
-			confirmButtonText: "Retry",
-			closeOnConfirm: false
-		},
-		function(){
-			document.location.reload();
-		});
-	}
-	
+		
 	
 	if((Math.sqrt((Math.pow((chaserX-x), 2)) + (Math.pow((chaserY-y), 2)))) < 30) {
 		clearInterval(drawTimer);
@@ -136,16 +123,28 @@ function draw() {
 		y += dy;
 	}
 	if(dPressed) {
-		chaserX += chaserDX;
+		if(chaserX + chaserDX > canvas.width-chaserRadius) {
+		} else {
+			chaserX += chaserDX;
+		}
 	}
 	if(aPressed) {
-		chaserX -= chaserDX;
+		if(chaserX + chaserDX < chaserRadius) {
+		} else {
+			chaserX -= chaserDX;
+		}
 	}
 	if(sPressed) {
-		chaserY -= chaserDY;
+		if(chaserY + chaserDY > canvas.height-chaserRadius) {
+		} else {
+			chaserY -= chaserDY;
+		}
 	}
 	if(wPressed) {
-		chaserY += chaserDY;
+		if(chaserY + chaserDY < chaserRadius) {
+		} else {
+			chaserY += chaserDY;
+		}
 	}
 }
 
