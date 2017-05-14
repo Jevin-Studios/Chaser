@@ -310,7 +310,6 @@ function resetHighscore() {
 			},
 			function(){
 				document.location.reload();
-			
 			});
 		}, 2000);
 	});
