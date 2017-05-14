@@ -24,72 +24,38 @@
 </head>
 <body>
 <h1 class="title">Chaser</h1>
-<button class="resetHighscore" id="reset" onclick="resetHighscore()">Reset Highscore</button>
-<button class="helpBtn" id="help" onclick="helpBtn()">Help</button>
-<h3 class="seconds" id="seconds">Seconds: 0 Highscore: 0</h3>
-<canvas id="myCanvas" width="750" height = "750"></canvas>
-<div id="myModal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <div class="modal-header">
-      <span class="close">&times;</span>
-	  </br>
-	  <h2 style="font-family: 'Amaranth', sans-serif">Help</h2>
-	  </br>
-	</div>
-    <div class="modal-body">
-	</br>
-     <label style="font-family: 'Amaranth', sans-serif"><b><u>Controls</u></b></label>
-	 </br>
-	 </br>
-	 <table style="width:100%">
-		<tr>
-			<td></td>
-			<td style="font-family: 'Amaranth', sans-serif" class="leftRightBorder">Chaser (green) :</td>
-			<td style="font-family: 'Amaranth', sans-serif" class="leftRightBorder">Runner (blue) :</td>
-		</tr>
-		<tr>
-			<td style="font-family: 'Amaranth', sans-serif" class="topBottomBorder">Left:</td>
-			<td style="font-family: 'Amaranth', sans-serif" class="fullBorder">A</td>
-			<td style="font-family: 'Amaranth', sans-serif" class="fullBorder">&larr;</td>
-		</tr>
-		<tr>
-			<td style="font-family: 'Amaranth', sans-serif" class="topBottomBorder">Right:</td>
-			<td style="font-family: 'Amaranth', sans-serif" class="fullBorder">D</td>
-			<td style="font-family: 'Amaranth', sans-serif" class="fullBorder">&rarr;</td>
-		</tr>
-		<tr>
-			<td style="font-family: 'Amaranth', sans-serif" class="topBottomBorder">Up:</td>
-			<td style="font-family: 'Amaranth', sans-serif" class="fullBorder">W</td>
-			<td style="font-family: 'Amaranth', sans-serif" class="fullBorder">&uarr;</td>
-		</tr>
-		<tr>
-			<td style="font-fa	mily: 'Amaranth', sans-serif" class="topBottomBorder">Down:</td>
-			<td style="font-family: 'Amaranth', sans-serif" class="fullBorder">S</td>
-			<td style="font-family: 'Amaranth', sans-serif" class="fullBorder">&darr;</td>
-		</tr>
-	</table>
-	</br>
-	</br>
-	
-	<label style="font-family: 'Amaranth', sans-serif"><b><u>Rules/Information</u></b></label>
-	</br>
-	</br>
-	<label style="font-family: 'Amaranth', sans-serif">The aim of the game is for the runner to stay alive for as long as possible</label>
-	</br>
-	<label style="font-family: 'Amaranth', sans-serif">The chaser must collide with the runner to stop him</label>
-	</br>
-	<label style="font-family: 'Amaranth', sans-serif">The runner cannot touch the sides. In doing so, the runner will die!</label>
-	</br>
-	<label style="font-family: 'Amaranth', sans-serif">The chaser can however move freely and will not die on touching the borders</label>
-	</br>
-	</br>
-	</div>
+<h3 class="author">By Jevin Studios</h3>
+<div class="center-div">
+<div class="slideshow-container">
+  <div class="mySlides fade">
+    <img src="Level1.png" style="width:100%">
+    <div class="text">Level 1</div>
   </div>
 
-</div>
+  <div class="mySlides fade">
+    <img src="Level2.png" style="width:100%">
+    <div class="text">Level 2</div>
+  </div>
 
+  <div class="mySlides fade">
+    <img src="Level1.png" style="width:100%">
+    <div class="text">Level 3</div>
+  </div>
+
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+<br>
+<div style="text-align:center">
+	<button class="playButton" onclick="play()">Play</button>
+</div>
+</br>
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+</div>
+</div>
 <script type="text/javascript" src="main.js"></script>
 </body>
 </html>

@@ -1,20 +1,117 @@
 * {
+	box-sizing:border-box;
 	padding: 0;
 	margin: 0;
 }
 
-canvas {
-	padding: 0;
-    margin: auto;
-    display: block;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-	background: #eee;
-	border: 5px solid black;
-	cursor: none;
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.mySlides {
+    display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  color: rgba(0,0,0,0.8);
+}
+
+
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+  color: white;
+}
+
+/* Caption text */
+.text {
+  color: black;
+  font-size: 30px;
+  padding: 8px 12px;
+  position: absolute;
+  margin-top: -22px;
+  top: 5%;
+  width: 100%;
+  text-align: center;
+  font-family: 'Baloo', sans-serif;
+}
+
+.playButton {
+	width:30%;
+	background-color: #007fff;
+	border: none;
+	border-radius: 18px;
+	height: 36px;
+	font-family: 'Baloo', sans-serif;
+	color: white;
+}
+
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor:pointer;
+  height: 13px;
+  width: 13px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+.center-div {
+	position: absolute;
+	margin: auto;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	width: 50%;
+	height: 50%;
 }
 
 h1.title {
@@ -22,141 +119,7 @@ h1.title {
 	font-family: 'Baloo', sans-serif;
 }
 
-h3.seconds {
+h3.author {
 	text-align: center;
 	font-family: 'Baloo', sans-serif;
 }
-
-button.resetHighscore {
-	height: 30px;
-	width: 120px;
-	background-color: #eee;
-	border: 2px solid black;
-	border-left: none;
-	border-top-right-radius: 7px;
-	border-bottom-right-radius: 7px;
-	position: fixed;
-	right: 25px;
-	top: 25px;
-	font-family: 'Baloo', sans-serif;
-	cursor: pointer;
-}
-
-button.helpBtn {
-	height: 30px;
-	width: 120px;
-	background-color: #eee;
-	border: 2px solid black;
-	border-top-left-radius: 7px;
-	border-bottom-left-radius: 7px;
-	position: fixed;
-	right: 145px;
-	top: 25px;
-	font-family: 'Baloo', sans-serif;
-	cursor: pointer;
-}
-
-/* The Modal (background) */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content */
-.modal-content {
-    position: relative;
-    background-color: #fefefe;
-    margin: auto;
-    padding: 0;
-    border: 1px solid #888;
-    width: 80%;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-    -webkit-animation-name: animatetop;
-    -webkit-animation-duration: 0.4s;
-    animation-name: animatetop;
-    animation-duration: 0.4s
-}
-
-/* Add Animation */
-@-webkit-keyframes animatetop {
-    from {top:-300px; opacity:0} 
-    to {top:0; opacity:1}
-}
-
-@keyframes animatetop {
-    from {top:-300px; opacity:0}
-    to {top:0; opacity:1}
-}
-
-/* The Close Button */
-.close {
-    color: white;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.modal-header {
-    padding: 2px 16px;
-    background-color: #007fff;
-    color: white;
-	vertical-align: middle;
-}
-
-.modal-body {
-	padding: 2px 16px;
-	margin: 0 auto;
-	text-align: center;
-}
-
-.modal-footer {
-    padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
-}
-
-th {
-	padding: 15px;
-	border-collapse: collapse;
-}
-
-td {
-	padding: 15px;
-	border-collapse: collapse;
-	text-align: center;
-}
-
-table {
-	border-collapse: collapse;
-}
-
-td.fullBorder {
-	border: 1px solid black;
-}
-
-td.topBottomBorder {
-	border-top: 1px solid black;
-	border-bottom: 1px solid black;
-}
-
-td.leftRightBorder {
-	border-left: 1px solid black;
-	border-right: 1px solid black;
-}
-	
