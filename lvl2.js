@@ -291,6 +291,7 @@ function keyUpHandler(e) {
 }
 
 function resetHighscore() {
+	ga('send', 'event', 'Button', 'click', 'Reset Highscore?', 2);
 	clearInterval(draw);
 	swal({
 		title: "Are You Sure?",
@@ -301,6 +302,7 @@ function resetHighscore() {
 		showLoaderOnConfirm: true,
 	},
 	function(){
+		ga('send', 'event', 'Button', 'click', 'Highscore Resetted', 2);
 		localStorage.setItem("highscore2", 0)
 		setTimeout(function(){
 			swal({
@@ -326,6 +328,7 @@ var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks the button, open the modal 
 btn.onclick = function() {
+	ga('send', 'event', 'Button', 'click', 'Show Help', 2);
     modal.style.display = "block";
 }
 
@@ -342,6 +345,7 @@ window.onclick = function(event) {
 }
 
 function toMenu() {
+	ga('send', 'event', 'Button', 'click', 'Go to Menu', 2);
 	window.location = "index.html";
 	return
 }

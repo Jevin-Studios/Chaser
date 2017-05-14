@@ -40,10 +40,12 @@ function showSlides(n) {
 
 function play () {
 	if(slideNumber % 3 == 1) {
+		ga('send', 'event', 'Button', 'Click', 'Play Level', 1);
 		window.location = "lvl1.html";
 		return
 	}
 	if(slideNumber % 3 == 2) {
+		ga('send', 'event', 'Button', 'Click', 'Play Level', 2);
 		window.location = "lvl2.html";
 		return
 	}
