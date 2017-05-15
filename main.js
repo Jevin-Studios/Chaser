@@ -71,6 +71,11 @@ function play () {
 		window.location = "lvl2.html";
 		return
 	}
+	if(slideNumber % 3 == 0) {
+		ga('send', 'event', 'Button', 'click', 'Play Level', 3);
+		window.location = "lvl3.html";
+		return
+	}
 }
 
 // Get the modal

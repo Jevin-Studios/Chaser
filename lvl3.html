@@ -1,0 +1,96 @@
+<DOCTYPE = html>
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ffffff">
+<title>Chaser</title>
+<link rel="icon" href="logo.ico" type="image/x-icon">
+<link rel="stylesheet" type="text/css" href="lvl3.css" />
+<script src="sweetalert.min.js"></script>
+<link rel="stylesheet" type="text/css" href="sweetalert.css">
+<link href="https://fonts.googleapis.com/css?family=Baloo" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Amaranth" rel="stylesheet">
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-85637981-5', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</head>
+<body>
+<h1 class="title">Level 3</h1>
+<button class="backButton" id="back" onclick="toMenu()">Level Select</button>
+<button class="resetHighscore" id="reset" onclick="resetHighscore()">Reset Highscore</button>
+<button class="helpBtn" id="help" onclick="helpBtn()">Help</button>
+<h3 class="seconds" id="seconds">Seconds: 0 Highscore: 0</h3>
+<canvas id="myCanvas" class="canvas" width="750" height = "750"></canvas>
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+	  </br>
+	  <h2 style="font-family: 'Amaranth', sans-serif">Help</h2>
+	  </br>
+	</div>
+    <div class="modal-body">
+	</br>
+     <label style="font-family: 'Amaranth', sans-serif"><b><u>Controls</u></b></label>
+	 </br>
+	 </br>
+	 <table style="width:100%">
+		<tr>
+			<td></td>
+			<td style="font-family: 'Amaranth', sans-serif" class="leftRightBorder">Chaser (green) :</td>
+			<td style="font-family: 'Amaranth', sans-serif" class="leftRightBorder">Runner (blue) :</td>
+		</tr>
+		<tr>
+			<td style="font-family: 'Amaranth', sans-serif" class="topBottomBorder">Left:</td>
+			<td style="font-family: 'Amaranth', sans-serif" class="fullBorder">A</td>
+			<td style="font-family: 'Amaranth', sans-serif" class="fullBorder">&larr;</td>
+		</tr>
+		<tr>
+			<td style="font-family: 'Amaranth', sans-serif" class="topBottomBorder">Right:</td>
+			<td style="font-family: 'Amaranth', sans-serif" class="fullBorder">D</td>
+			<td style="font-family: 'Amaranth', sans-serif" class="fullBorder">&rarr;</td>
+		</tr>
+		<tr>
+			<td style="font-family: 'Amaranth', sans-serif" class="topBottomBorder">Up:</td>
+			<td style="font-family: 'Amaranth', sans-serif" class="fullBorder">W</td>
+			<td style="font-family: 'Amaranth', sans-serif" class="fullBorder">&uarr;</td>
+		</tr>
+		<tr>
+			<td style="font-fa	mily: 'Amaranth', sans-serif" class="topBottomBorder">Down:</td>
+			<td style="font-family: 'Amaranth', sans-serif" class="fullBorder">S</td>
+			<td style="font-family: 'Amaranth', sans-serif" class="fullBorder">&darr;</td>
+		</tr>
+	</table>
+	</br>
+	</br>
+	
+	<label style="font-family: 'Amaranth', sans-serif"><b><u>Rules/Information</u></b></label>
+	</br>
+	</br>
+	<label style="font-family: 'Amaranth', sans-serif">The aim of the game is for the runner to stay alive for as long as possible</label>
+	</br>
+	<label style="font-family: 'Amaranth', sans-serif">The chaser must collide with the runner to stop him</label>
+	</br>
+	<label style="font-family: 'Amaranth', sans-serif">The runner cannot touch the sides. In doing so, the runner will die!</label>
+	</br>
+	<label style="font-family: 'Amaranth', sans-serif">The chaser can however move freely and will not die on touching the borders</label>
+	</br>
+	</br>
+	</div>
+  </div>
+
+</div>
+
+<script type="text/javascript" src="lvl3.js"></script>
+</body>
+</html>

@@ -139,36 +139,7 @@ function draw() {
 		}
 	}
 	
-	if((x+dx)>=200-ballRadius && (x+dx)<=550+ballRadius) {
-		if((y+dy)>=200-ballRadius && (y+dy)<=550+ballRadius){
-			clearInterval(drawTimer);
-			if(seconds>highscore2) {
-				highscore2 = seconds;
-				localStorage.setItem("highscore2",highscore2);
-				swal({
-					title: "Runner Dies",
-					text: "The runner hit the wall\n\nYou have set a new highscore of "+highscore2+" seconds",
-					type: "info",
-					confirmButtonText: "Retry",
-					closeOnConfirm: false
-				},
-				function(){
-					document.location.reload();
-				});
-			} else {
-				swal({
-					title: "Runner Dies",
-					text: "The runner hit the wall",
-					type: "info",
-					confirmButtonText: "Retry",
-					closeOnConfirm: false
-				},
-				function(){
-					document.location.reload();
-				});
-			}
-		}
-	}
+	
 			
 	
 		
