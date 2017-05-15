@@ -5,24 +5,27 @@ var chaserColor = "";
 var runnerColor = "";
 showSlides(slideIndex);
 
-if(localStorage.getItem("difficulty")) {
-	difficulty = localStorage.getItem("difficulty");
-} else {
-	difficulty = "medium";
-};
+function onload() {
+	if(localStorage.getItem("difficulty")) {
+		difficulty = localStorage.getItem("difficulty");
+	} else {
+		difficulty = "medium";
+	};
 
-if(localStorage.getItem("chaserColor")) {
-	chaserColor = localStorage.getItem("chaserColor");
-} else {
-	chaserColor = "#008000";
+	if(localStorage.getItem("chaserColor")) {
+		chaserColor = localStorage.getItem("chaserColor");
+	} else {
+		chaserColor = "#008000";
+	}
+
+	if(localStorage.getItem("runnerColor")) {
+		runnerColor = localStorage.getItem("runnerColor");
+	} else {
+		runnerColor = "#0000FF";
+	}
 }
 
-if(localStorage.getItem("runnerColor")) {
-	runnerColor = localStorage.getItem("runnerColor");
-} else {
-	runnerColor = "#0000FF";
-}
-
+window.onload = onload();
 
 function plusSlides(n) {
 	if(n == 1) {
