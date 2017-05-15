@@ -21,6 +21,9 @@ var chaserRadius = 15;
 var seconds = 0;
 var start = false;
 var highscore1 = 0;
+var difficulty = "";
+var runnerColor = "";
+var chaserColor = "";
 
 var link = document.createElement('link');
 link.type = 'image/x-icon';
@@ -37,12 +40,42 @@ if(localStorage.getItem("highscore1")) {
 	document.getElementById("seconds").innerHTML = "Seconds: "+seconds+" Highscore: "+highscore1;
 };
 
+if(localStorage.getItem("difficulty")) {
+	difficulty = localStorage.getItem("difficulty");
+	if(difficulty == "easy") {
+		chaserDX = 1.2;
+		chaserDY = -1.2;
+	} else if(difficulty == "medium") {
+		chaserDX = 1.5;
+		chaserDY = -1.5;
+	} else if(difficulty == "hard") {
+		chaserDX = 1.8;
+		chaserDY = -1.8;
+	}
+} else {
+	chaserDX = 1.5;
+	chaserDY = -1.5;
+}
+
+if(localStorage.getItem("runnerColor")) {
+	runnerColor = localStorage.getItem("runnerColor");
+} else {
+	runnerColor = "#0000FF";
+	localStorage.setItem("runnerColor", runnerColor);
+}
+
+if(localStorage.getItem("chaserColor")) {
+	chaserColor = localStorage.getItem("chaserColor");
+} else {
+	chaserColor = "#008000";
+	localStorage.setItem("chaserColor", chaserColor);
+}
 
 
 function drawBall() {
 	ctx.beginPath();
 	ctx.arc(x, y, ballRadius, 0, Math.PI*2, false);
-	ctx.fillStyle = "blue";
+	ctx.fillStyle = runnerColor;
 	ctx.fill();
 	ctx.closePath();
 }
@@ -50,7 +83,7 @@ function drawBall() {
 function drawChaser() {
 	ctx.beginPath();
 	ctx.arc(chaserX, chaserY, chaserRadius, 0, Math.PI*2, false);
-	ctx.fillStyle = "green";
+	ctx.fillStyle = chaserColor;
 	ctx.fill();
 	ctx.closePath();
 }

@@ -9,6 +9,7 @@
 <link rel="stylesheet" type="text/css" href="interface.css" />
 <script src="sweetalert.min.js"></script>
 <link rel="stylesheet" type="text/css" href="sweetalert.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://fonts.googleapis.com/css?family=Baloo" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Amaranth" rel="stylesheet">
 <script>
@@ -47,14 +48,66 @@
   </div>
 <br>
 <div style="text-align:center">
-	<button class="playButton" onclick="play()">Play</button>
-</div>
-</br>
-<div style="text-align:center">
   <span class="dot" onclick="currentSlide(1)"></span> 
   <span class="dot" onclick="currentSlide(2)"></span> 
   <span class="dot" onclick="currentSlide(3)"></span> 
 </div>
+</br>
+<div style="text-align:center">
+	<button class="playButton" onclick="play()">Play</button>
+	<button id="settings" class="settingsBtn">Options</button>
+</div>
+</br>
+</div>
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+	  </br>
+	  <h2 style="font-family: 'Amaranth', sans-serif">Settings</h2>
+	  </br>
+	</div>
+    <div class="modal-body">
+	</br>
+	<label style="font-family: 'Amaranth', sans-serif"><b>Difficulty</b> 
+		<div class="difficultyHelp" id="difficultyHelp" onclick="difficultyHelp()"><i class="fa fa-question"></i>
+			<span class="popuptext" id="myPopup">The higher the difficulty, the faster the chaser</span>
+		</div>
+	</label>
+	</br></br>
+	<form style="font-family: 'Amaranth', sans-serif">
+		<select name="difficulty" id="difficultySelect">
+			<option id="easyOption" value="easy">Easy</option>
+			<option id="mediumOption" value="medium">Medium</option>
+			<option id="hardOption" value="hard">Hard</option>
+		</select>
+	</form>
+	</br>
+	</br>
+	<label style="font-family: 'Amaranth', sans-serif"><b>Colours</b></label>
+	</br>
+	</br>
+	<form style="font-family: 'Amaranth', sans-serif">
+		<u>Chaser:</u> 
+		</br></br>
+		<input type= "color" name= "chaserColor" id="chaserColor">
+		</br>
+		</br>
+		<u>Runner:</u> 
+		</br>
+		</br>
+		<input type="color" name= "runnerColor" id="runnerColor">
+	</form>
+	</br>
+	</br>
+	<button id="reset" class="resetBtn" onclick="resetBtn()">Reset</button>
+	</br>
+	</br>
+	</div>
+  </div>
+
 </div>
 <script type="text/javascript" src="main.js"></script>
 </body>
