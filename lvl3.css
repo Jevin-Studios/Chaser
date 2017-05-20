@@ -17,6 +17,33 @@ canvas.canvas {
 	cursor: none;
 }
 
+.pauseOverlay {
+	position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    padding: 0;
+	margin: auto;
+	top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+	width: 750px;
+	height: 750px;
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+	cursor: none;
+}
+
+.pauseText {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 50px;
+	text-align: center; 
+    color: white;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+}
+
 h1.title {
 	text-align: center;
 	font-family: 'Baloo', sans-serif;

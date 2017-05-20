@@ -24,6 +24,7 @@ var highscore1 = 0;
 var difficulty = "";
 var runnerColor = "";
 var chaserColor = "";
+var paused = false;
 
 var link = document.createElement('link');
 link.type = 'image/x-icon';
@@ -91,7 +92,11 @@ function drawChaser() {
 
 function drawSeconds() {
 	if (!(y + dy > canvas.height-ballRadius || y + dy < ballRadius || x + dx > canvas.width-ballRadius || x + dx < ballRadius || (Math.sqrt((Math.pow((chaserX-x), 2)) + (Math.pow((chaserY-y), 2)))) < 30)) {
-		seconds += 1;
+		if (paused) {
+			seconds += 0;
+		} else {
+			seconds += 1;
+		}
 		document.getElementById("seconds").innerHTML = "Seconds: "+seconds+" Highscore: "+highscore1;
 	}
 }
@@ -161,39 +166,53 @@ function draw() {
 	}
 
 	if(rightPressed) {
+		pauseOff();
 		x += dx;
 	}
 	if(leftPressed) {
+		pauseOff();
 		x -= dx;
 	}
 	if(downPressed) {
+		pauseOff();
 		y -= dy;
 	}
 	if(upPressed) {
+		pauseOff();
 		y += dy;
 	}
 	if(dPressed) {
+		pauseOff();
 		if(chaserX + chaserDX > canvas.width-chaserRadius) {
 		} else {
 			chaserX += chaserDX;
 		}
 	}
 	if(aPressed) {
+		pauseOff();
 		if(chaserX + chaserDX < chaserRadius) {
 		} else {
 			chaserX -= chaserDX;
 		}
 	}
 	if(sPressed) {
+		pauseOff();
 		if(chaserY + chaserDY > canvas.height-chaserRadius) {
 		} else {
 			chaserY -= chaserDY;
 		}
 	}
 	if(wPressed) {
+		pauseOff();
 		if(chaserY + chaserDY < chaserRadius) {
 		} else {
 			chaserY += chaserDY;
+		}
+	}
+	
+	if(!rightPressed && !leftPressed && !upPressed && !downPressed && !aPressed && !dPressed && !sPressed && !wPressed) {
+		if(start) {
+			pauseOn();	
 		}
 	}
 }
@@ -207,7 +226,7 @@ function keyDownHandler(e) {
 		rightPressed = true;
 		if(!start) {
 			start = true;
-			setInterval(drawSeconds, 1000);
+			drawSeconds = setInterval(drawSeconds, 1000);
 		}
 	} else if (e.keyCode == 37) {
 		leftPressed = true;
@@ -276,7 +295,7 @@ function keyUpHandler(e) {
 }
 
 function resetHighscore() {
-	ga('send', 'event', 'Button', 'click', 'Reset Highscore?', 1);
+	ga('send', 'event', 'Button', 'click', 'Reset Highscore?');
 	clearInterval(draw);
 	swal({
 		title: "Are You Sure?",
@@ -287,7 +306,7 @@ function resetHighscore() {
 		showLoaderOnConfirm: true,
 	},
 	function(){
-		ga('send', 'event', 'Button', 'click', 'Highscore Resetted', 1);
+		ga('send', 'event', 'Button', 'click', 'Highscore Resetted');
 		localStorage.setItem("highscore1", 0)
 		setTimeout(function(){
 			swal({
@@ -331,9 +350,19 @@ window.onclick = function(event) {
 }
 
 function toMenu() {
-	ga('send', 'event', 'Button', 'click', 'Go to Menu', 1);
+	ga('send', 'event', 'Button', 'click', 'Go to Menu');
 	window.location = "index.html";
 	return
+}
+
+function pauseOn() {
+	paused = true;
+	document.getElementById("pauseOverlay").style.display = "block";
+}
+
+function pauseOff() {
+	paused = false;
+	document.getElementById("pauseOverlay").style.display = "none";
 }
 
 var drawTimer = setInterval(draw, 10);
