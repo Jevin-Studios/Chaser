@@ -32,7 +32,6 @@
 }
 
 
-
 /* Position the "next button" to the right */
 .next {
   right: 0;
@@ -56,6 +55,7 @@
   width: 100%;
   text-align: center;
   font-family: 'Baloo', sans-serif;
+  line-height: 100%;
 }
 
 .playButton {

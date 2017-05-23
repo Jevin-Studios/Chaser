@@ -61,6 +61,30 @@ function showSlides(n) {
   }
   slides[slideIndex-1].style.display = "block"; 
   dots[slideIndex-1].className += " active";
+  
+  if(slideNumber % 3 == 1) {
+	  if(localStorage.getItem("highscore1")) {
+		  document.getElementById("Lvl1Text").innerHTML = "Level 1</br>Highscore = " + localStorage.getItem("highscore1");
+	  } else {
+		  document.getElementById("Lvl1Text").innerHTML = "Level 1</br>Highscore = 0"
+	  }
+  }
+  
+  if(slideNumber % 3 == 2) {
+	  if(localStorage.getItem("highscore2")) {
+		  document.getElementById("Lvl2Text").innerHTML = "Level 2</br>Highscore = " + localStorage.getItem("highscore2");
+	  } else {
+		  document.getElementById("Lvl1Text").innerHTML = "Level 1</br>Highscore = 0"
+	  }
+  }
+  
+  if(slideNumber % 3 == 0) {
+	  if(localStorage.getItem("highscore3")) {
+		  document.getElementById("Lvl3Text").innerHTML = "Level 3</br>Highscore = " + localStorage.getItem("highscore3");
+	  } else {
+		  document.getElementById("Lvl1Text").innerHTML = "Level 1</br>Highscore = 0"
+	  }
+  }
 }
 
 function play () {
